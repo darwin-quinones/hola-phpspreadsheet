@@ -7,9 +7,13 @@ require 'conexion.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 $spreadsheet = $reader->load('hola.xlsx');
-$number_rows = count($spreadsheet->getSheet(0)->toArray());
+$current_sheet2 = $spreadsheet->getSheet(1);
+$current_sheet1 = $spreadsheet->getSheet(0);
+$number_rows1 = count($spreadsheet->getSheet(0)->toArray());
+$number_rows2 = $current_sheet2->getHighestDataRow();
+//echo 'number_rows2: '.$number_rows2;
 // SE OBTIENE LAS FILAS CON INFO Y SE CONVIERTE A UN ARRAY
-$sheetData = $spreadsheet->getActiveSheet()->toArray();
+$sheetData = $current_sheet2->toArray();
 $i = 1;
 // eliminar la primera fila
 unset($sheetData[0]);
