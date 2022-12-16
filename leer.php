@@ -17,13 +17,10 @@ $numero_letra = Coordinate::columnIndexFromString($letter);
 
 for($indice_fila = 1; $indice_fila <= $number_rows; $indice_fila++){
     
-    for($indice_columna; $indice_columna <= $numero_letra; $indice_columna++){
-
+    for($indice_columna = 1; $indice_columna <= $numero_letra; $indice_columna++){
+        $valor = $current_sheet->getCellByColumnAndRow($indice_columna, $indice_fila);
+        echo 'valor: '.$valor. ' ';
     }
-    
-    $valorA = $current_sheet->getCellByColumnAndRow(1, $indice_fila);
-    $valorB = $current_sheet->getCellByColumnAndRow($numero_letra, $indice_fila);
-    $valorC = $current_sheet->getCellByColumnAndRow(3, $indice_fila);
-    echo 'valorA: '.$valorA. ' valorB: '. $valorB. ' valorC: '. $valorC. '<br/>';
+    echo '<br/>';
 }
 ?>
